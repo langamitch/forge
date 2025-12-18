@@ -1,15 +1,12 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,6 +26,23 @@ body {
   font-family: var(--font-inter);
 }
 
+.helvetica {
+  font-family: var(--font-helvetica-neue);
+  font-weight: 400;
+}
+
+.mestika {
+  font-family: var(--font-mestika);
+}
 .muted {
-  color :#777777;
+  color: #777777;
+}
+
+/* Utility to hide scrollbars while preserving scroll behavior */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
