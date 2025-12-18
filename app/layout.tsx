@@ -22,27 +22,27 @@ const inter = Inter({
 const helveticaNeue = localFont({
   src: [
     {
-      path: "../public/fonts/HelveticaNeueLight.otf",
+      path: "./fonts/HelveticaNeueLight.otf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../public/fonts/HelveticaNeueMedium.otf",
+      path: "./fonts/HelveticaNeueMedium.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../public/fonts/HelveticaNeueRoman.otf",
+      path: "./fonts/HelveticaNeueRoman.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/HelveticaNeueBold.otf",
+      path: "./fonts/HelveticaNeueBold.otf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../public/fonts/HelveticaNeueHeavy.otf",
+      path: "./fonts/HelveticaNeueHeavy.otf",
       weight: "900",
       style: "normal",
     },
@@ -51,13 +51,13 @@ const helveticaNeue = localFont({
 });
 
 const mestika = localFont({
-  src: "../public/fonts/Mestika.otf",
+  src: "./fonts/Mestika.otf",
   variable: "--font-mestika",
 });
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: " ",
+  title: "Awards Weekly - Curated Website Inspiration",
+  description: " Awebsite where user can upload their work for the public to see and get inspired. Weakly awards are given to the best website based on design, creativity, and usability.",
 };
 
 export default function RootLayout({
