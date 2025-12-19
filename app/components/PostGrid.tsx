@@ -1,92 +1,64 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabaseClient";
 import PostCard from "./PostCard";
 
 const PostGrid = () => {
-  const postContent = [
-    {
-      id: 1,
-      title: "Reowned",
-      author: "Ethan Chui",
-      date: "2025",
-      category: "Portfolio",
-    },
-    {
-      id: 2,
-      title: "Watt",
-      author: "Sarah Johnson",
-      date: "2025",
-      category: "Utilities",
-    },
-    {
-      id: 3,
-      title: "Nova",
-      author: "Mike Chen",
-      date: "2025",
-      category: "Ai",
-    },
-    {
-      id: 4,
-      title: "The Minolith",
-      author: "Emma Wilson",
-      date: "2025",
-      category: "E-commerce",
-    },
-    {
-      id: 5,
-      title: "Acor",
-      author: "Alex Rodriguez",
-      date: "2025",
-      category: "E-commerce",
-    },
-    {
-      id: 6,
-      title: "Tereso",
-      author: "James Lee",
-      date: "2025",
-      category: "Agency",
-    },
-    {
-      id: 7,
-      title: "Osmo",
-      author: "Lisa Chen",
-      date: "2025",
-      category: "Non-profit",
-    },
-    {
-      id: 8,
-      title: "House Of ESAM",
-      author: "David Brown",
-      date: "2025",
-      category: "Blog",
-    },
-    {
-      id: 9,
-      title: "Mojo",
-      author: "Rachel Green",
-      date: "2025",
-      category: "Agency",
-    },
-    {
-      id: 10,
-      title: "Infinite",
-      author: "Tom Knight",
-      date: "2025",
-      category: "Experimental",
-    },
-  ];
+  const [posts, setPosts] = useState<
+    Array<{
+      id: string;
+      title: string;
+      author: string;
+      date: string;
+      category: string;
+      imagePath?: string;
+    }>
+  >([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSubmissions = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("website_submissions")
+          .select("*");
+
+        if (error) throw error;
+
+        const mappedPosts = data.map((submission) => ({
+          id: submission.id,
+          title: submission.website_title,
+          author: submission.authors[0]?.name || "Unknown",
+          date: new Date(submission.created_at).getFullYear().toString(),
+          category: submission.categories[0] || "Uncategorized",
+          imagePath: submission.image_path,
+        }));
+
+        setPosts(mappedPosts);
+      } catch (error) {
+        console.error("Error fetching submissions:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSubmissions();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+
   return (
-    <div>
-      <div className="grid sm:grid-cols-1 p-2 gap-2 md:grid-cols-2 lg:grid-cols-3">
-        {postContent.map((post) => (
-          <PostCard
-            key={post.id}
-            title={post.title}
-            category={post.category}
-            author={post.author}
-            date={post.date}
-          />
-        ))}
-      </div>
+    <div className="grid sm:grid-cols-1 p-2 gap-2 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => (
+        <PostCard
+          key={post.id}
+          title={post.title}
+          category={post.category}
+          author={post.author}
+          date={post.date}
+          imagePath={post.imagePath}
+        />
+      ))}
     </div>
   );
 };

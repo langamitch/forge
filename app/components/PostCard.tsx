@@ -5,6 +5,7 @@ type PostCardProps = {
   category?: string;
   author?: string;
   date?: string;
+  imagePath?: string;
 };
 
 const PostCard: React.FC<PostCardProps> = ({
@@ -12,13 +13,35 @@ const PostCard: React.FC<PostCardProps> = ({
   category = "Uncategorized",
   author = "Unknown",
   date,
+  imagePath,
 }) => {
+  // Construct the full image URL
+  const imageUrl = imagePath
+    ? `https://vbcvredghjxiirqxroqg.supabase.co/storage/v1/object/public/media/${encodeURIComponent(
+        imagePath
+      )}`
+    : null;
+
   return (
     <div>
       <div className="flex flex-col min-w-25 p-2 space-y-2">
         <a href="#">
           <div className="bg-gray-200 border border-gray-300 rounded-sm w-full aspect-video">
-            image here
+            {imageUrl ? (
+              <img
+                src={imageUrl}
+                alt={title}
+                className="w-full h-full object-cover rounded-sm"
+                onError={(e) => {
+                  console.error("Failed to load image:", imageUrl);
+                  e.currentTarget.style.display = "none";
+                }}
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-gray-500">
+                No Image
+              </div>
+            )}
           </div>
         </a>
 
