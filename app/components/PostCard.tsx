@@ -17,7 +17,7 @@ const PostCard: React.FC<PostCardProps> = ({
     <div>
       <div className="flex flex-col min-w-25 p-2 space-y-2">
         <a href="#">
-          <div className="bg-gray-200 border border-gray-300 rounded-lg w-full aspect-video">
+          <div className="bg-gray-200 border border-gray-300 rounded-sm w-full aspect-video">
             
           </div>
         </a>

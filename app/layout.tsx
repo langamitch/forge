@@ -56,7 +56,7 @@ const mestika = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Awards Weekly - Curated Website Inspiration",
+  title: "A wards Weekly - Curated Website Inspiration",
   description: " Awebsite where user can upload their work for the public to see and get inspired. Weakly awards are given to the best website based on design, creativity, and usability.",
 };
 
