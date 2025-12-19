@@ -25,7 +25,7 @@ const Hero = () => {
         {/* Logo and Text + Visit Button */}
         <div className="absolute bottom-40 left-4 z-10">
           {/* Orange Logo Square */}
-          <div className="mb-4 w-25 h-25 flex items-center justify-center mix-blend-color bg-[#f6762a] rounded-sm">
+          <div className="mb-4 w-25 h-25 flex items-center justify-center mix-blend-color bg-[#f6762a] ">
             <span className="font-bold text-white text-2xl">AW.</span>
           </div>
 

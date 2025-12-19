@@ -1,88 +1,73 @@
 "use client";
+
 import React from "react";
 import Link from "next/link";
+import { filters } from "../data/filters";
+import { FilterButton } from "./filter-button";
 
-const CategoryFilter = () => {
-  const filters = [
-    "All",
-    "Portfolio",
-    "Tool",
-    "Ai",
-    "E-commerce",
-    "Agency",
-    "Non-profit",
-    "Blog",
-    "Personal",
-    "Mobile App",
-    "Desktop App",
-    "Development",
-    "Design",
-    "SAAS",
-    "Finance",
-    "Fashion",
-    "Health",
-    "Art",
-    "Homeware",
-    "Music",
-    "Sports",
-    "Tech",
-    "F1",
-    "Web3",
-    "Food & Drinks",
-    "Beauty",
-    "Photography",
-    "Motion",
-    "Education",
-  ];
-
+const CategoryFilter: React.FC = () => {
   const sentinelRef = React.useRef<HTMLDivElement | null>(null);
   const [fixed, setFixed] = React.useState(false);
+  const [active, setActive] = React.useState("all");
 
   React.useEffect(() => {
     const node = sentinelRef.current;
     if (!node) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        // when sentinel is not intersecting, user scrolled past it -> make filter fixed
-        setFixed(!entry.isIntersecting);
-      },
-      { root: null, threshold: 0 }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setFixed(!entry.isIntersecting),
+      { threshold: 0 }
     );
-    obs.observe(node);
-    return () => obs.disconnect();
+
+    observer.observe(node);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div>
-      {/* sentinel used to detect when to pin the filter */}
-      <div ref={sentinelRef} />
+      {/* Sentinel */}
+      <div ref={sentinelRef}  />
 
+      {/* Filter bar */}
       <div
-        className={`${
-          fixed
-            ? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-30"
-            : "relative"
-        } flex p-2 flex-nowrap overflow-auto gap-2 no-scrollbar`}
+        className={`
+          ${
+            fixed
+              ? "fixed top-0 left-0 right-0 z-30 bg-white/90 backdrop-blur-sm px-2"
+              : "relative"
+          }
+          flex gap-2 p-2 overflow-x-auto no-scrollbar
+        `}
       >
         {filters.map((filter) => (
-          <button
-            key={filter}
-            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-xl muted text-sm font-medium helvetica shrink-0"
-          >
-            {filter}
-          </button>
+          <FilterButton
+            key={filter.id}
+            label={filter.label}
+            icon={filter.icon}
+            active={active === filter.id}
+            onClick={() => setActive(filter.id)}
+          />
         ))}
 
         <Link
           href="/submit"
-          className="px-4 py-2 bg-black text-white rounded-lg text-sm font-medium helvetica shrink-0"
+          className="
+            shrink-0
+            px-4 py-2
+            rounded-xl
+            bg-black
+            text-white
+            text-sm
+            font-medium
+            helvetica
+          "
         >
           Submit Website
         </Link>
       </div>
 
-      {/* spacer to prevent content jump when filter becomes fixed */}
-      {fixed && <div className="h-14" aria-hidden="true" />}
+      {/* Spacer when fixed */}
+      {fixed && <div className="h-14" aria-hidden />}
     </div>
   );
 };

@@ -46,3 +46,7 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
+
+.material-symbols-outlined {
+  font-size: 16px !important;
+}

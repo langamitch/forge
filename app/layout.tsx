@@ -67,6 +67,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="no-scrollbar">
+         <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${helveticaNeue.variable} ${mestika.variable} antialiased`}
       >

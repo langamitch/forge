@@ -15,7 +15,7 @@ const PostGrid = () => {
       title: "Watt",
       author: "Sarah Johnson",
       date: "2025",
-      category: "Tool",
+      category: "Utilities",
     },
     {
       id: 3,
