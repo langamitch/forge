@@ -2,6 +2,7 @@ import PostGrid from "./components/PostGrid";
 import CategoryFilter from "./components/CategoryFilter";
 import Hero from "./components/Hero";
 import BottomNavbar from "./components/BottomNavbar";
+import Loader from "./components/Loader";
 
 export default function Home() {
   return (
