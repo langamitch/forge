@@ -1,6 +1,7 @@
 import React from "react";
 
 type PostCardProps = {
+  url?: string;
   title?: string;
   category?: string;
   author?: string;
@@ -9,6 +10,7 @@ type PostCardProps = {
 };
 
 const PostCard: React.FC<PostCardProps> = ({
+  url = "#",
   title = "Untitled",
   category = "Uncategorized",
   author = "Unknown",
@@ -25,7 +27,7 @@ const PostCard: React.FC<PostCardProps> = ({
   return (
     <div>
       <div className="flex flex-col min-w-25 p-2 space-y-2">
-        <a href="#">
+        <a href={url} target="_blank" rel="noopener noreferrer">
           <div className="bg-gray-200 border border-gray-300 rounded-sm w-full aspect-video">
             {imageUrl ? (
               <img

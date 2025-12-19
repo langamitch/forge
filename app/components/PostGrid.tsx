@@ -7,6 +7,7 @@ const PostGrid = () => {
   const [posts, setPosts] = useState<
     Array<{
       id: string;
+      url: string;
       title: string;
       author: string;
       date: string;
@@ -27,6 +28,7 @@ const PostGrid = () => {
 
         const mappedPosts = data.map((submission) => ({
           id: submission.id,
+          url: submission.website_url,
           title: submission.website_title,
           author: submission.authors[0]?.name || "Unknown",
           date: new Date(submission.created_at).getFullYear().toString(),
@@ -52,6 +54,7 @@ const PostGrid = () => {
       {posts.map((post) => (
         <PostCard
           key={post.id}
+          url={post.url}
           title={post.title}
           category={post.category}
           author={post.author}
