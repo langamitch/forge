@@ -49,7 +49,7 @@ const Loader: React.FC = () => {
       style={{ clipPath: "circle(75% at 50% 50%)" }}
     >
       <div className="mb-4">
-        <img src="/logo.png" alt="Logo" className="w-20 h-20 animate-pulse" />
+
       </div>
       <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden relative mb-4">
         <div

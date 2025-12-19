@@ -2,7 +2,7 @@ import React from "react";
 
 const BottomNavbar = () => {
   return (
-    <div className="fixed z-[9999999] bottom-2 left-1/2 transform -translate-x-1/2">
+    <div className="fixed z-9999999 bottom-2 left-1/2 transform -translate-x-1/2">
       <div className="rounded-xl gap-1.5 bg-[#222222CC] backdrop-blur-sm p-1.5 flex justify-between">
         <div className="bg-[#222222] p-4 aspect-square text-white rounded-lg">
           {" "}
