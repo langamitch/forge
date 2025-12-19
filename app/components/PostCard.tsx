@@ -47,14 +47,14 @@ const PostCard: React.FC<PostCardProps> = ({
 
         <div className="grid grid-cols-12 gap-x-2">
           <div className="flex flex-col col-start-1 col-span-5">
-            <p className="text-black font-medium helvetica text-[14px] tracking-[-0.4px]">
+            <p className="text-black font-medium capitalize helvetica text-[14px] tracking-[-0.4px]">
               {title}
             </p>
-            <p className="muted font-medium helvetica text-[14px] tracking-[-0.4px]">
+            <p className="muted font-medium capitalize helvetica text-[14px] tracking-[-0.4px]">
               {author}
             </p>
           </div>
-          <div className="col-start-6 helvetica col-span-5 font-medium text-[14px]">
+          <div className="col-start-6 helvetica capitalize col-span-5 font-medium text-[14px]">
             {category}
           </div>
           <div className="col-start-11 helvetica col-span-2 text-right">
