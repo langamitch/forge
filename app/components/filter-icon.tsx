@@ -12,9 +12,9 @@ export const FilterIcon: React.FC<FilterIconProps> = ({
 }) => {
   return (
     <div>
-    <span
-      aria-hidden
-      className={`
+      <span
+        aria-hidden
+        className={`
         material-symbols-outlined
         text-[10px]
         font-light
@@ -22,12 +22,13 @@ export const FilterIcon: React.FC<FilterIconProps> = ({
         translate-y-px
         ${className}
       `}
-      style={{
-        fontVariationSettings: `'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 10`,
-        fontSize: "20px",
-      }}
-    >
-      {name}
-    </span></div>
+        style={{
+          fontVariationSettings: `'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 10`,
+          fontSize: "20px",
+        }}
+      >
+        {name}
+      </span>
+    </div>
   );
 };

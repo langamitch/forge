@@ -30,6 +30,7 @@ const helveticaNeue = localFont({
       path: "./fonts/HelveticaNeueMedium.otf",
       weight: "500",
       style: "normal",
+      
     },
     {
       path: "./fonts/HelveticaNeueRoman.otf",

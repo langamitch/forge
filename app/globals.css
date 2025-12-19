@@ -30,6 +30,10 @@ body {
   font-family: var(--font-helvetica-neue);
   font-weight: 400;
 }
+.helvetica-500 {
+  font-family: var(--font-helvetica-neue);
+  font-weight: 500;
+}
 
 .mestika {
   font-family: var(--font-mestika);
@@ -49,4 +53,46 @@ body {
 
 .material-symbols-outlined {
   font-size: 16px !important;
+}
+
+label {
+  font-family: var(--font-inter), sans-serif;
+  color: black;
+  letter-spacing: -0.3px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  
+}
+
+.label {
+  font-family: var(--font-inter), sans-serif;
+  color: #000000;
+  letter-spacing: -0.3px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  
+}
+
+input, textarea {
+  background-color: #f0f2f5;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0);
+  line-height: 22px;
+  margin-top: 10px;
+  border-radius: 8px;
+  
+}
+
+.form-heading {
+  font-family: var(--geist-sans);
+  font-weight: 500;
+  font-size: 24px;
+  color: black;
+  line-height: 32px;
+  font-style: normal;
+  margin-bottom: 30px;
 }
