@@ -1,9 +1,10 @@
 import React from 'react'
+import PostInfo from '@/app/components/PostInfo'
 
 const page = () => {
   return (
     <div>
-      <div></div>
+      <PostInfo />
     </div>
   )
 }
